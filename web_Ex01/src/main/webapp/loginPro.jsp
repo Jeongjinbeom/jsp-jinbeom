@@ -23,7 +23,6 @@
 	String pw = request.getParameter("pw");
 
 	
-	
 	%>
 	
 	<h1>id : <%=id %></h1>
