@@ -15,6 +15,7 @@ h1{
     display: flex;
 	justify-content: space-around;
     color: green;
+     font-size: 60px;
 }
 
 
@@ -33,6 +34,10 @@ h1{
 	flex-wrap: wrap;
 	font-size: 14px;
 }
+
+#check{
+    margin-left: 40%;  
+}
 </style>
 
 <title>회원가입</title>
@@ -43,6 +48,7 @@ h1{
 <body>
 	<h1>NAVER</h1>
 	<form action="_2_join.jsp" class="from">
+		<input type='checkbox' name='subject1' id="check"><span>네이버 이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택), 프로모션 정보 수신(선택)에 모두 동의합니다.</span><br>
 		<input type='checkbox' name='subject' id="check"><span>네이버 이용약관 동의<small>(필수)</small></span>
 		<p>여러분을 환영합니다. 네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한
 			네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스
@@ -66,9 +72,16 @@ h1{
           
             let cnt = 0;
             for(let i=0; i<form.subject.length; i++){
-                if(form.subject[0].checked === true && form.subject[1].checked === true)
-                cnt ++;
-              
+                if(form.subject[0].checked === true && form.subject[1].checked === true){
+                cnt ++;                	
+                }           	            
+            }
+            
+            if(form.subject1.checked === true){
+                for(let i=0; i<form.subject.length; i++){
+                    form.subject[i].checked = true;
+                	cnt = 4;
+                }
             }
 
             if(cnt > 1)
@@ -76,8 +89,6 @@ h1{
             else
                 alert("필수사항을 다시 확인해주세요.");
         }
-
-
 
     </script>
 
